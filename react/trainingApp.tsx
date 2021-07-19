@@ -1,4 +1,6 @@
-import React from 'react'
+import React,  {useContext, useEffect } from 'react'
+import { ProductContext } from 'vtex.product-context'
+
 
 type Props = {
   name: string,
@@ -6,6 +8,13 @@ type Props = {
 }
 
 function trainingApp({ name, age }: Props) {
+
+  const productInfo = useContext(ProductContext);
+
+  useEffect(()=> {
+    console.log("productInfo useEffect",productInfo)
+  },[])
+
   return <div>Hey, {name}, tengo {age} años</div>
 }
 
